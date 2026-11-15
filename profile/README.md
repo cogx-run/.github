@@ -2,8 +2,8 @@
 
 # ⚙️ CogX
 
-**去中心化的个人副屏娱乐工作台** \
-_Local-First, Plugin-Everything Sidecar Space._
+> **本地优先、万物皆插件的去中心化副屏桌面空间。**
+> _Local-First, Plugin-Everything Sidecar Space._
 
 [![Website](https://img.shields.io/badge/官网入口-cogx.run-blue?style=flat-square)](https://cogx.run)
 [![License](https://img.shields.io/badge/开源协议-Apache--2.0-green?style=flat-square)](https://github.com/cogx-run/cogx)
