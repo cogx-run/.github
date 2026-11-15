@@ -11,6 +11,8 @@ _Local-First, Plugin-Everything Sidecar Space._
 
 </div>
 
+---
+
 ## 🔗 快速链接
 
 - 🌐 **官方网站**：[https://cogx.run](https://cogx.run)
@@ -18,14 +20,18 @@ _Local-First, Plugin-Everything Sidecar Space._
 - 📖 **开发者文档与 API 标准**：见主仓库说明或官网文档中心
 - 📮 **官方联络**：[cogx@mo7tech.com](mailto:cogx@mo7tech.com)
 
+---
+
 ## 💡 CogX 是什么？
 
-**一句话定义：基于本地文件系统与原生现代 Web 标准的轻量级微内核副屏容器。**
+**基于本地文件系统与原生现代 Web 标准的轻量级微内核副屏容器。**
 
 用户桌面上的**全能数字工作台与个人游戏盒子**：
 
 **从 AI 生成的单文件小挂件，到外部现代 Web 网页，再到完整的独立游戏——在底层一切皆是插件，随用随开，随关随释放。**
 告别动辄数百兆、强捆绑登录的臃肿独立软件，找回桌面本该拥有的清爽与自由。
+
+---
 
 ## 🌟 五大核心理念
 
@@ -49,6 +55,8 @@ _Local-First, Plugin-Everything Sidecar Space._
 ### 🕊️ 5. 开源微内核 · 去中心化生态共享
 
 底座微内核全面开源（Apache-2.0），代码开放即是标准普及。凡是基于 CogX 契约开发或分发的应用，插件生态完全共享互通。
+
+---
 
 ## 🕊️ CogX 名字的由来
 
