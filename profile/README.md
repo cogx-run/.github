@@ -11,7 +11,12 @@ _Local-First, Plugin-Everything Sidecar Space._
 
 </div>
 
----
+## 🔗 快速链接
+
+- 🌐 **官方网站**：[https://cogx.run](https://cogx.run)
+- 💻 **开源底座源码**：[cogx-run/cogx](https://github.com/cogx-run/cogx)
+- 📖 **开发者文档与 API 标准**：见主仓库说明或官网文档中心
+- 📮 **官方联络**：[cogx@mo7tech.com](mailto:cogx@mo7tech.com)
 
 ## 💡 CogX 是什么？
 
@@ -21,8 +26,6 @@ _Local-First, Plugin-Everything Sidecar Space._
 
 **从 AI 生成的单文件小挂件，到外部现代 Web 网页，再到完整的独立游戏——在底层一切皆是插件，随用随开，随关随释放。**
 告别动辄数百兆、强捆绑登录的臃肿独立软件，找回桌面本该拥有的清爽与自由。
-
----
 
 ## 🌟 五大核心理念
 
@@ -47,8 +50,6 @@ _Local-First, Plugin-Everything Sidecar Space._
 
 底座微内核全面开源（Apache-2.0），代码开放即是标准普及。凡是基于 CogX 契约开发或分发的应用，插件生态完全共享互通。
 
----
-
 ## 🕊️ CogX 名字的由来
 
 > _“风停雾聚，你在桌前歇息；风起雾散，他开始跋涉群山。”_
@@ -65,11 +66,3 @@ _Local-First, Plugin-Everything Sidecar Space._
   代表未知、灵感火花与去中心化插件生态的无限扩展。
 
 **一枚齿轮咬合万千插件，一羽铜鸟陪伴每一个工作日常。**
-
----
-
-## 🔗 快速链接
-
-- 🌐 **官方网站**：[https://cogx.run](https://cogx.run)
-- 💻 **开源底座源码**：[cogx-run/cogx](https://github.com/cogx-run/cogx)
-- 📖 **开发者文档与 API 标准**：见主仓库说明或官网文档中心
