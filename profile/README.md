@@ -13,15 +13,6 @@ _Local-First, Plugin-Everything Sidecar Space._
 
 ---
 
-## 🔗 快速链接
-
-- 🌐 **官方网站**：[https://cogx.run](https://cogx.run)
-- 💻 **开源底座源码**：[cogx-run/cogx](https://github.com/cogx-run/cogx)
-- 📖 **开发者文档与 API 标准**：见主仓库说明或官网文档中心
-- 📮 **官方联络**：[cogx@mo7tech.com](mailto:cogx@mo7tech.com)
-
----
-
 ## 💡 CogX 是什么？
 
 **基于本地文件系统与原生现代 Web 标准的轻量级微内核副屏容器。**
@@ -74,3 +65,11 @@ _Local-First, Plugin-Everything Sidecar Space._
   代表未知、灵感火花与去中心化插件生态的无限扩展。
 
 **一枚齿轮咬合万千插件，一羽铜鸟陪伴每一个工作日常。**
+
+---
+
+## 🔗 快速链接
+
+- 🌐 **官方网站**：[https://cogx.run](https://cogx.run)
+- 💻 **开源底座源码**：[cogx-run/cogx](https://github.com/cogx-run/cogx)
+- 📖 **开发者文档与 API 标准**：见主仓库说明或官网文档中心
