@@ -2,7 +2,7 @@
 
 # ⚙️ CogX
 
-**本地优先、万物皆插件的桌面副屏容器。** \
+**本地优先、万物皆插件的应用容器。** \
 _Local-First, Plugin-Everything Sidecar Space._
 
 [![Website](https://img.shields.io/badge/官网入口-cogx.run-blue?style=flat-square)](https://cogx.run)
