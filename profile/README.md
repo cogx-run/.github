@@ -1,76 +1,122 @@
 <div align="center">
 
-# ⚙️ CogX
+# CogX
 
-**万物皆插件，数据皆本地。** \
-_Plugin-Everything, Local-First._
+**万物皆插件，数据皆本地。**
+_Plugin-Everything, Local-First Desktop Dock._
 
-[![Website](https://img.shields.io/badge/官网入口-cogx.run-blue?style=flat-square)](https://cogx.run)
-[![License](https://img.shields.io/badge/开源协议-Apache--2.0-green?style=flat-square)](https://github.com/cogx-run/cogx)
-[![Architecture](https://img.shields.io/badge/底座架构-Rust_+_Tauri_2-orange?style=flat-square)](https://github.com/cogx-run/cogx)
+[![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
+[![Engine](https://img.shields.io/badge/tech_stack-Rust_2024_+_Tauri_2-orange.svg)](https://tauri.app)
+[![Protocol](https://img.shields.io/badge/protocol-cogx://-brightgreen.svg)](#)
+[![Official Website](https://img.shields.io/badge/website-cogx.run-6366f1.svg)](https://cogx.run)
+
+[官网 (cogx.run)](https://cogx.run) • [开发规范与文档](https://github.com/cogx-run) • [系统深链 `cogx://`](#)
 
 </div>
 
 ---
 
-当前处于私有开发阶段，源码尚未公开；计划在《莫尔：桌面旅人》上线 Steam 之后开源。
+### 💡 什么是 CogX？
 
-## 💡 CogX 是什么？
+**CogX 是一个以自定义任意本地目录为工作区、万物皆插件、数据皆本地的桌面扩展坞。**
 
-一个跑在你自己电脑上的轻量桌面扩展坞。内核本身不提供任何具体功能——时钟、便签、番茄钟、盯盘、桌宠、迷你游戏，全部以插件形式存在，随用随开，关掉即释放。
+它不造私有数据黑盒，更不试图取代你早已习惯的主力生产力工具。你只需指定电脑中的 **任意一个文件夹** ——无论是一个正在开发的工程仓库、一个沉淀多年的笔记库，还是随手的日常目录，CogX 都能直接“附着”上去，在屏幕一角为你提供即插即用的轻量能力与陪伴。
 
-插件有两种运行位置：**导航模式**把所有插件收在同一个窗口里，随时切换；**独立窗口**让一个插件独占一个原生 WebView，能和任何工具并排摆放。同一个插件可以随时换位置，数据与状态都不变。
+```text
+[ 你的本地目录 (代码工程 / 知识库 / 个人文件夹) ]
+  ├── .cogx/           <- CogX 专属目录：收敛插件代码、运行数据、授权项与工作区独立配置
+  ├── .git/            <- 完美兼容 Git：插件配置、运行数据与笔记一同提交，版本掌控在手
+  ├── .obsidian/       <- 兼容 Obsidian：直接挂载为知识库，便签与双链笔记无缝协作
+  ├── .vscode/         <- 兼容 VS Code：直接挂载项目根目录，构建监控与 API 盯盘随手即开
+  ├── daily-notes.md   <- 你的开放格式文件：插件与外部编辑器共享，绝不私有加密
+  └── tasks.json       <- 数据透明落盘：可随时迁移、备份，或交给外部脚本批量处理
+```
 
-它同时也是一套 **插件标准**：`meta` 声明能力，`ctx` 提供系统接口，工作区 `.cogx/` 存明文数据。任何人都可以照着写插件、做发行版、建自己的应用商店。
-
----
-
-## 🌟 五大核心理念
-
-### 1. 一个文件就是一个插件。
-
-基于现代浏览器 ESM 标准，**无需配置打包环境，也无需等待构建，仅需一个 `main.js` 即可直接运行**。
-小到便签、盯盘与番茄钟，大到深度叙事游戏，在微内核中地位完全平等。它可以当工具台、桌宠营地、迷你游戏盒，也可以是 AI 生成单文件小应用的运行底座。
-
-### 2. AI 写完，粘贴即运行。
-
-把需求丢给任何顺手的大模型，按官方 Prompt Protocol 生成代码，复制，在综合管理里点「从剪贴板导入」——插件直接出现在桌面上。生成物只是工作区里一个明文文件，属于你，随时能改、能带走。
-
-### 3. 数据在你自己的文件夹。
-
-插件源码与个人数据全部以明文 JSON / Markdown / JS 保存在你选定的工作区 `.cogx/` 目录。用 Git 管版本、放网盘、拷进 U 盘都随你。不注册能用，断网也能用。
-
-### 4. 极致轻量，关掉即释放。
-
-底层由 **Rust + 系统原生 WebView** 构建，不背传统架构数十上百兆的常驻开销。权限只保留两道真实边界——网络出口与工作区路径，其余能力交给用户与开发者自行判断。
-
-### 5. 开源微内核，去中心化生态共享。
-
-底座微内核全面开源（Apache-2.0），代码开放即是标准普及。凡是基于 CogX 契约开发或分发的插件与发行版，生态完全共享互通。
+- 📂 **目录即工作区 (Folder-as-Workspace)**：任何本地文件夹都能一键挂载为工作区，插件读写局限于根目录内，数据随目录自由迁移、备份或受版本控制系统（Git）管理。可以支持网盘，U盘进行同步与保存。
+- 🧩 **一切皆插件**：时钟、番茄钟、系统状态盯盘、网页小窗、桌面旅人陪伴桌宠、各种卡牌游戏——内核零业务绑定，全部能力由插件承载。
+- 🤖 **AI 代码即用即走**：让任意大模型按提示词标准生成单文件 `main.js`，不用编程剪贴板一键即导入本地即刻运行。
+- 🛡️ **克制清晰的微内核**：Rust + Tauri 2 驱动。默认禁用、权限全关；杜绝远程代码注入与动态 `eval`；网络请求走严苛白名单网关。
 
 ---
 
-## 🕊️ CogX 名字的由来
+### 🏗️ 核心架构
 
-> _“风停雾聚，你在桌前歇息；风起雾散，他开始跋涉群山。”_
-> _“你在现实世界努力，他在异世界远行。”_
+CogX 将宿主系统能力与具体业务彻底剥离，控制中心与 CLI 共享统一的 Rust core 内核：
 
-名字源于原创叙事伴侣游戏《莫尔：桌面旅人》：
-
-- **机械鸟：考格（Cog，意为齿轮）**
-  在故事中，考格是一只在遗忘之雾中意外觉醒智能的黄铜机械鸟。
-  在莫尔醒来时，考格穿过大雾飞来，从此成为他的忠实伴侣；它身上隐藏着莫尔的身世之谜。
-- **无限（X）**
-  代表未知、灵感火花与去中心化插件生态的无限扩展。
-- **信差：莫尔（More）**
-  名字取自 _“One more step”_（再走一步）。代表在疲惫的生活与工作中，安静陪你再坚持往前多走一段路。
-
-**一枚齿轮咬合万千插件，一羽铜鸟陪伴每一个工作日常。**
+```text
+控制中心 UI (单例)    系统深链 (cogx://)     CLI 工具 (cogx)
+    │                    │                     │
+    └────────────────────┼─────────────────────┘
+                         ▼
+               [ CogX Rust Core ]
+      ├── 权限注册与令牌校验 (Unified plugin_call)
+      ├── 本地网络放行网关 (ctx.fetch)
+      ├── 目录边界安全防护 (Strict Folder Confinement)
+      └── 单调高精度计时器 (Monotonic Timer)
+                         │
+         ┌───────────────┴───────────────┐
+         ▼                               ▼
+   [ Dock 模式 ]                   [ Solo 模式 ]
+ 共享窗口 · 导航切换              独立 WebView · 强隔离
+```
 
 ---
 
-## 🔗 快速链接
+### ⚡ 插件能力标准 (ctx API)
 
-- 🌐 **官方网站**：[https://cogx.run](https://cogx.run)
-- 💻 **开源底座**：[cogx-run/cogx](https://github.com/cogx-run/cogx)
-- 📖 **开发者文档与 API 标准**：见主仓库说明或官网文档中心
+每个插件就是一个极简的 Web 标准模块，通过宿主注入的受控 `ctx` 获取能力：
+
+```js
+export default async function (ctx) {
+  // 1. 本地 DOM 挂载 (使用封闭 ShadowRoot)
+  const doc = ctx.root.ownerDocument;
+  const btn = doc.createElement('button');
+  btn.textContent = '记录一次专注';
+  ctx.root.appendChild(btn);
+
+  // 2. 本地工作区文件直读直写 (需经用户授权)
+  btn.onclick = async () => {
+    await ctx.workspace.write('focus.log', `${new Date().toISOString()} 完成了一次专注\n`);
+    await ctx.storage.set('last_focus', Date.now());
+    await ctx.toast('已保存到工作区目录！');
+  };
+
+  // 3. 高精度单调计时 (窗口遮挡/最小化不受浏览器策略节流)
+  const timer = await ctx.timer.after(25 * 60 * 1000, async () => {
+    await ctx.toast('番茄钟时间到！');
+  });
+
+  // 4. 清理注销
+  ctx.onUnmount(async () => {
+    await timer.cancel();
+  });
+}
+```
+
+---
+
+### 🗺️ 演进路线图
+
+- [x] **阶段一：插件底座与微内核**
+      Rust core、目录工作区、权限隔离、统一 CLI、网页小窗、`cogx://` 协议与单调计时。
+- [ ] **阶段二：《莫尔：桌面旅人》与游戏单品验证**
+      以首款买断制叙事桌宠游戏跑通底座能力，在 Steam 平台完成独立验证。
+- [ ] **阶段三：市场上线与生态闭环**
+      开源 CogX 免费本体，上线官方免费源、第三方源支持与 Steam 创意工坊支持。
+- [ ] **阶段四：增值服务与生态分发**
+      按需上线官网独立版账号体系、云同步与精选插件源。
+- [ ] **阶段五：多端工作区流转**
+      移动端支持（Tauri 2 Mobile）与局域网 P2P 目录同步。
+
+---
+
+### 📜 开源协议与品牌说明
+
+- **微内核底座与插件规范**：基于 [Apache License 2.0](LICENSE) 协议完全开源。任何人均可自由学习、修改并构建自己的发行版与插件源。
+- **品牌与官方资产保留**：“CogX”、机械伴鸟“考格 (Cog)”形象、`cogx.run` 域名以及官方源资产由创始人与运营主体独立保留，开源不包含商标与相关原创美术授权。
+
+<div align="center">
+
+**一枚齿轮咬合万千插件，一羽铜鸟陪伴每个专注日常。**
+
+</div>
