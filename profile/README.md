@@ -66,6 +66,8 @@ CogX 将宿主系统能力与具体业务彻底剥离，控制中心与 CLI 共�
 
 每个插件就是一个极简的 Web 标准模块，通过宿主注入的受控 `ctx` 获取能力：
 
+`main.js` 文件Demo如下：
+
 ```js
 export default async function (ctx) {
   // 1. 本地 DOM 挂载 (使用封闭 ShadowRoot)
