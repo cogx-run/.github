@@ -10,7 +10,7 @@ _Plugin-Everything, Local-First Desktop Dock._
 [![Protocol](https://img.shields.io/badge/protocol-cogx://-brightgreen.svg)](#)
 [![Official Website](https://img.shields.io/badge/website-cogx.run-6366f1.svg)](https://cogx.run)
 
-[官网 (cogx.run)](https://cogx.run) • [开发规范与文档](https://github.com/cogx-run) • [系统深链 `cogx://`](#)
+[官网 (cogx.run)](https://cogx.run) • [架构与开发文档](https://github.com/cogx-run) • [系统深链 `cogx://`](#)
 
 </div>
 
@@ -41,14 +41,14 @@ _Plugin-Everything, Local-First Desktop Dock._
 
 ### 🏗️ 核心架构
 
-CogX 将系统能力与具体业务分离，控制中心、系统深链和 CLI 共用同一个 Rust core：
+CogX 将系统能力与具体业务分离，控制中心、系统深链和 CLI 共用同一个 CogX core：
 
 ```text
 控制中心 UI (单例)    系统深链 (cogx://)     CLI 工具 (cogx)
     │                    │                     │
     └────────────────────┼─────────────────────┘
                          ▼
-               [ CogX Rust Core ]
+               [ CogX Core ]
       ├── 权限注册与令牌校验 (Unified plugin_call)
       ├── 按域授权网络网关 (ctx.fetch)
       ├── 目录边界安全防护 (Strict Folder Confinement)
@@ -56,8 +56,8 @@ CogX 将系统能力与具体业务分离，控制中心、系统深链和 CLI �
                          │
          ┌───────────────┴───────────────┐
          ▼                               ▼
-   [ Dock 模式 ]                   [ Solo 模式 ]
- 共享窗口 · 导航切换              独立 WebView · 强隔离
+   [ 主窗口内 ]                    [ 独立窗口 ]
+ 共用主窗口 WebView · 导航切换      独立窗口 · 独立 WebView
 ```
 
 ---
@@ -94,20 +94,14 @@ export default async function (ctx) {
 
 ---
 
-### 🗺️ 演进路线图
+### 📚 文档体系
 
-- [ ] **阶段一：插件底座与微内核**
-      CogX Rust core、目录工作区、dock/solo、权限与风险提示、剪贴板与 zip 导入、开发目录、核心 CLI、网页小窗、`cogx://`、Rust 计时与代码变更处理。
-- [ ] **阶段二：《莫尔：桌面旅人》与游戏单品验证**
-      《莫尔》桌宠与番茄钟插件、《莫尔：桌面旅人》独立版、Steam 买断发行。
-- [ ] **阶段三：插件市场与生态闭环**
-      开源底座与插件标准、免费 CogX、官方免费源、第三方源、Steam 创意工坊与 DLC、静态扫描、手动更新与回滚；实验性 Steam 云同步，继续验证冲突与恢复。
-- [ ] **阶段四：账号与在线服务**
-      按真实需求上线账号、储值、会员、官方精选源、付费插件、在线服务与云同步。
-- [ ] **阶段五：移动端与跨端同步**
-      按真实需求支持 Tauri 2 Mobile 移动端、局域网 P2P 同步与跨端工作区。
-- [ ] **持续演进：扩充能力边界**
-      按反馈增加系统信息、命令行、剪贴板、截图、录屏等公开 Rust API，具体功能仍由插件实现。
+- **产品白皮书**：最终架构畅想、能力边界、市场格局、竞品经验与长期影响力。
+- **发展规划**：唯一维护实施阶段、验证目标、商业安排和启动条件。
+- **架构与实现**：CogX core、Tauri 窗口、控制中心、CLI 与当前交付验收。
+- **API 说明**：插件目录、字段、`ctx`、权限、错误码和兼容规则的唯一契约。
+- **工程结构**：仓库归属、命名、测试、构建与发布规则。
+- **安全隐患**：风险、最坏影响、防治和取舍的待验证清单。
 
 ---
 
